@@ -1,3 +1,13 @@
+/*
+    Project Group:
+    Connor Bartlett
+    Salile Malisita
+    Robert Wallace
+    Tyler Cline
+*/
+
+
+
 package iusb.C201.bank;
 
 import java.util.Scanner;
@@ -53,12 +63,6 @@ public class bank {
                 System.out.println("Please enter a valid input!");
             }
 
-            /*Your choice:
-			
-			If user picks (1), (2) or (3) show message "to be done!"
-			If user picks (9) terminate the while loop
-			If user picks other choices, show message "Please enter a valid input!"
-             */
         }
     }
 
