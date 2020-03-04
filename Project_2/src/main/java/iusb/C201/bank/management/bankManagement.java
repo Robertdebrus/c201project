@@ -1,3 +1,9 @@
+/*
+
+Team Members: Robert Wallace, Connor Bartlett, Tyler Cline, Salile Malisita 
+
+*/
+
 package iusb.C201.bank.management;
 
 import java.util.Scanner;
@@ -100,25 +106,35 @@ public class bankManagement {
         //inp.close();
 
         File file = new File(accountDB);
-        File temp = new File("temp.txt");
         Scanner reader = new Scanner(file);
-        FileWriter writer = new FileWriter(temp, true);
+        FileWriter writer = new FileWriter("temp.txt", true);
         int id;
-        while (inFile.hasNext()) {
-            id = inFile.nextInt();
-            System.out.println(id + " : " + searchID);
+        boolean found = false;
+        while (reader.hasNext()) {
+            id = reader.nextInt();
             if (id != searchID) {
-                System.out.println(id + " != " + searchID + " = " + (id != searchID));
-                out.write(id + inFile.nextLine() + " ! ");
+                String toWrite = (id + "\t" + reader.next() + "\t" + reader.next()+ "\t" + reader.next() + "\n");
+                writer.write(toWrite);
+                System.out.print(toWrite);
             }
-            if (inFile.hasNext()) inFile.nextLine();
+            if (id == searchID)
+                found = true;
+            if (reader.hasNext()) reader.nextLine();
+        }
+        if(!found){
+            System.out.println("no account found");
         }
         
         
-        out.close();
-        inFile.close();
-        boolean s = temp.renameTo(file);
-        System.out.println(s);
+        writer.close();
+        
+        reader.close();
+        file.delete();
+        
+        File f1 = new File(accountDB);
+        File f2 = new File("temp.txt");
+        
+        boolean s = f2.renameTo(f1);
         //temp.delete();
         
     }
