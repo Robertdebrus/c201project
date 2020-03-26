@@ -1,0 +1,56 @@
+package iusb.C201.bank.transaction;
+
+public class account {
+
+    private int acctNumber;
+    private String firstname;
+    private String lastname;
+    private double balance;
+
+    public account(int act, String fn, String ln, double b) {
+        acctNumber = act;
+        firstname = fn;
+        lastname = ln;
+        balance = b;
+    }
+
+    public int getAccountNumber() {
+        return acctNumber;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        /*
+        Your code goes here
+        update balance (add amount to balance)
+        
+         */
+        this.balance = this.balance + amount;
+    }
+
+    public boolean withdraw(double amount) {
+        /*
+        Your code goes here
+        If amount is less than balance, update
+            balance (subtract amount from balance) and return true
+        Else return false
+         */
+        if (amount < this.balance) {
+            this.balance = this.balance - amount;
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
