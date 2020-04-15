@@ -26,7 +26,12 @@ public class bankAnalysis
         2. Call loadDB() method of the instance
         
         */
-
+        transactionAnalysis TA = new transactionAnalysis(transactionDB); 
+        TA.loadDB();
+        
+        
+        
+//end
         while(done == false)
         {
             System.out.println("\n************************************");
@@ -48,8 +53,8 @@ public class bankAnalysis
             If user picks 2, call listTransactions() method of the object 
                of transactionAnalysis.
             */
-            if(choice == 1) System.out.println("to be done!");
-            else if (choice == 2) System.out.println("to be done!");
+            if(choice == 1) TA.listAllTransactions();
+            else if (choice == 2) TA.listTransactions();
             else if (choice == 9) done = true;
             else  System.out.println("Please enter a valid input!");
         }

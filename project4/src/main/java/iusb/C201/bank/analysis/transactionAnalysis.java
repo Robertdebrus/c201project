@@ -52,13 +52,31 @@ public class transactionAnalysis {
         2. Display all the transaction records of that account in the ArrayList
         
          */
+        System.out.printf("Enter an account number%n");
+        Scanner input = new Scanner(System.in);
+        int actN = input.nextInt();
+        for (int i=0;i<transactions.size();i++) {
+            transactionRecord t = (transactionRecord)transactions.get(i);
+            if (t.getActnum() == actN) {
+                System.out.printf("%d\t%s\t%.2f\t%s%n", t.getActnum(), t.getType(), t.getAmount(), t.getTime());
+            }
+        }
+        //end
     }
 
     public void listAllTransactions() {
         /*
         Your code goes here
         Display all the transaction records in the ArrayList
-        
+
          */
+
+        for (Object transaction : transactions) {
+            transactionRecord t = (transactionRecord) transaction;
+
+            System.out.printf("%d\t%s\t%.2f\t%s%n", t.getActnum(), t.getType(), t.getAmount(), t.getTime());
+
+        }
+        //end 
     }
 }

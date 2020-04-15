@@ -120,7 +120,7 @@ public class bankTransaction {
          */
 
         String currentTime = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-        FileWriter fw = new FileWriter(accountDB, false);
+        FileWriter fw = new FileWriter(transactionDB, true);
         fw.write(actNum + "\t" + type + "\t" + amount +"\t"+currentTime+ "\n");
         fw.close();
         //end
